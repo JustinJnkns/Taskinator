@@ -1,12 +1,16 @@
 //variable to set elements to Document Objects Model
-var buttonEl = document.querySelector("#save-task")
-var taskToDoEl = document.querySelector("#tasks-to-do");
+var formEl = document.querySelector("#task-form");
+var tasksToDoEl = document.querySelector("#tasks-to-do");
 
-buttonEl.addEventListener("click",function(){
-    //on click, creates LI, assigns it styling through classname, and inserts it into UL
+var createTaskHandler = function(event) {
+
+    event.preventDefault();
+ 
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
-    listItemEl.textContent = "this is a new task.";
-    taskToDoEl.appendChild(listItemEl);
-}
-);
+    listItemEl.textContent = "This is a new task.";
+    tasksToDoEl.appendChild(listItemEl);
+  };
+
+formEl.addEventListener("submit", createTaskHandler);
+
